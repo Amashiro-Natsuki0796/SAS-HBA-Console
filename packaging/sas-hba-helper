@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+"""SAS HBA 特权助手（由 pkexec 以 root 启动）。
+
+pkexec 会清理 PYTHONPATH，因此安装路径由 dpkg 固定为
+/usr/lib/python3/dist-packages；同时兼容从 /usr/local 安装的情况。
+"""
+
+import os
+import sys
+
+PYTHON_PATHS = (
+    "/usr/lib/python3/dist-packages",
+    "/usr/local/lib/python3/dist-packages",
+    "/usr/local/lib/python3.13/dist-packages",
+    "/usr/local/lib/python3.12/dist-packages",
+    "/usr/local/lib/python3.10/dist-packages",
+)
+
+for path in PYTHON_PATHS:
+    if os.path.isdir(path) and path not in sys.path:
+        sys.path.insert(0, path)
+
+try:
+    from sas_hba_console.helper import main
+except ImportError as exc:  # 安装不完整时给出明确提示
+    sys.stderr.write(f"sas-hba-helper: 无法加载 sas_hba_console：{exc}\n")
+    sys.stderr.write("请重新安装 sas-hba-console。\n")
+    raise SystemExit(1)
+
+raise SystemExit(main())

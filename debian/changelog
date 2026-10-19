@@ -1,0 +1,32 @@
+sas-hba-console (2.6.3) unstable; urgency=medium
+
+  * 修复"恢复已断开的端口链路"报错"非法的设备路径：''"。移除自动恢复时
+    误删了 provider 的 restore_phy 分支，操作会落到设备校验逻辑并失败。
+  * 该操作不针对单块硬盘，不需要也不应该解析设备路径。
+  * 手工恢复后同步清理记录（含 PHY 已不存在的陈旧项），不再遗留脏数据，
+    菜单项计数随之归零。
+  * 新增回归测试：恢复链路不依赖设备路径、陈旧记录清理不报失败。
+
+ -- SAS HBA Storage Console contributors <sas-hba@example.invalid>  Tue, 20 Oct 2026 03:56:21 +0800
+
+sas-hba-console (2.6.2) unstable; urgency=medium
+
+  * 按需求移除"端口链路自动恢复"：断开链路后不再定时自动启用，
+    避免拔插行为不可预期。恢复改为纯手动操作。
+  * 保留侧边菜单"恢复已断开的端口链路"（显示待恢复端口数量，
+    无待恢复项时置灰），热拔对话框明确提示：断开后需手动恢复，
+    重新插入不会被自动识别。
+  * 清理已完成但不再需要的自动恢复代码、定时器与相关文案。
+
+ -- SAS HBA Storage Console contributors <sas-hba@example.invalid>  Tue, 20 Oct 2026 03:49:20 +0800
+
+sas-hba-console (2.6.1) unstable; urgency=medium
+
+  * 自动恢复端口链路的空闲闸门由 20 秒缩短为 5 秒。
+  * 恢复改由独立定时器驱动（每 2 秒轮询），不再依赖刷新周期：
+    默认刷新间隔为 60 秒，此前"5 秒恢复"实际要等近一分钟。
+    现在拔下再插入约 6 秒内即可被识别。
+  * 没有待恢复端口时不发起任何 IPC 调用；陈旧记录（PHY 路径已不存在）
+    会自动清理，避免定时器空转。
+
+ -- SAS HBA Storage Console contributors <sas-hba@example.invalid>  Tue, 20 Oct 2026 03:44:29 +0800

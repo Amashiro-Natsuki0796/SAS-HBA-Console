@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+
+  <vendor>SAS HBA Storage Console</vendor>
+  <vendor_url>https://github.com/sas-hba-console/sas-hba-console</vendor_url>
+
+  <action id="io.github.sashbaconsole.helper">
+    <description>读取 SAS/SCSI/RAID 控制器与硬盘的 SMART 信息</description>
+    <description xml:lang="en">Read SMART data from SAS/SCSI/RAID controllers and drives</description>
+    <message>需要管理员授权才能访问存储控制器、读取硬盘 SMART，并控制硬盘启停与安全热拔出。</message>
+    <message xml:lang="en">Authentication is required to access storage controllers, read drive SMART data, and control drive power / hot-removal.</message>
+    <icon_name>sas-hba-console</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sas-hba-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+  <!-- 1.x 安装的旧助手路径，升级后仍可授权（助手内部逻辑相同） -->
+  <action id="io.github.sashbaconsole.helper.legacy">
+    <description>读取存储控制器与硬盘 SMART（旧版入口）</description>
+    <message>需要管理员授权才能访问存储控制器与硬盘。</message>
+    <icon_name>sas-hba-console</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/lsi9207-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+</policyconfig>

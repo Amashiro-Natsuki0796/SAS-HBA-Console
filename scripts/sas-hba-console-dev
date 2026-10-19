@@ -1,0 +1,4 @@
+#!/bin/sh
+# 从源码运行图形界面
+cd "$(dirname "$0")/.." || exit 1
+exec /usr/bin/python3 -m sas_hba_console "$@"

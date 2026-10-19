@@ -1,0 +1,19 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=SAS HBA 存储控制台
+Name[en]=SAS HBA Storage Console
+Name[zh_CN]=SAS HBA 存储控制台
+GenericName=HBA 存储控制台
+GenericName[en]=HBA Storage Console
+Comment=查看 SAS/SCSI/RAID 控制器与硬盘 SMART 信息，控制硬盘启停与安全热拔出
+Comment[en]=Inspect SAS/SCSI/RAID HBAs and drive SMART data, spin drives up/down and hot-remove them safely
+Comment[zh_CN]=查看 SAS/SCSI/RAID 控制器与硬盘 SMART 信息，控制硬盘启停与安全热拔出
+Exec=sas-hba-console
+TryExec=sas-hba-console
+Icon=sas-hba-console
+Terminal=false
+StartupNotify=true
+StartupWMClass=SasHbaConsole
+Categories=System;
+Keywords=English;i18n;language;SAS;SATA;SCSI;SMART;HBA;RAID;LSI;Broadcom;Adaptec;9207;9300;硬盘;存储;直通卡;热插拔;

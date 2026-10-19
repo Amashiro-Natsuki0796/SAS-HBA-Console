@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	python3 -m compileall -q sas_hba_console
+
+override_dh_auto_test:
+	python3 -m unittest discover -s tests
+
+override_dh_auto_install:
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/sas-hba-console PREFIX=/usr
+
+override_dh_auto_clean:
+	# 注意：不要删除 dist/，否则每次构建都会清掉之前构建好的 deb。
+	find . -name '__pycache__' -type d -prune -exec rm -rf {} +
+	find . -name '*.pyc' -delete

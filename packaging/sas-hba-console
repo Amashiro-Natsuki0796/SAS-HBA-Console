@@ -1,0 +1,24 @@
+#!/bin/sh
+# SAS HBA 存储控制台启动器（Debian / Ubuntu）。
+# 普通用户启动时，程序会通过 pkexec 弹出系统 root 授权对话框，
+# 主界面本身不以 root 运行。
+set -e
+
+# 确保从 .desktop 启动时也能找到 /usr/sbin 下的 smartctl 等工具。
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin${PATH:+:$PATH}"
+export PATH
+
+# 安装后资源位于 /usr/share/sas-hba-console；源码运行时会自动回退到仓库内 assets。
+if [ -z "${SAS_HBA_ASSETS:-}" ] && [ -d /usr/share/sas-hba-console ]; then
+    SAS_HBA_ASSETS=/usr/share/sas-hba-console
+    export SAS_HBA_ASSETS
+fi
+
+# Ubuntu 上从 GNOME/KDE 启动时 pkexec 需要可用的会话总线；
+# 缺失时给出明确提示而不是让授权对话框无响应。
+if [ -z "${DBUS_SESSION_BUS_ADDRESS:-}" ] && [ -S "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/bus" ]; then
+    DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/bus"
+    export DBUS_SESSION_BUS_ADDRESS
+fi
+
+exec python3 -m sas_hba_console "$@"

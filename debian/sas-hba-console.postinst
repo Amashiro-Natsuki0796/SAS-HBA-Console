@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = "configure" ]; then
+    # 兼容 1.x 的命令名，避免用户脚本/桌面快捷方式失效
+    if [ ! -e /usr/bin/lsi9207-console ]; then
+        ln -sf sas-hba-console /usr/bin/lsi9207-console
+    fi
+
+    if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+        gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor || true
+    fi
+    if command -v update-desktop-database >/dev/null 2>&1; then
+        update-desktop-database -q /usr/share/applications || true
+    fi
+fi
+
+#DEBHELPER#
+
+exit 0

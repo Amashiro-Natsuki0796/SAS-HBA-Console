@@ -1,0 +1,33 @@
+{
+  "json_format_version": [
+    1,
+    0
+  ],
+  "smartctl": {
+    "version": [
+      7,
+      4
+    ],
+    "pre_release": false,
+    "svn_revision": "5530",
+    "platform_info": "x86_64-linux-6.12.107+deb13-amd64",
+    "build_info": "(local build)",
+    "argv": [
+      "smartctl",
+      "-a",
+      "-j",
+      "/dev/sda"
+    ],
+    "messages": [
+      {
+        "string": "Smartctl open device: /dev/sda failed: Permission denied",
+        "severity": "error"
+      }
+    ],
+    "exit_status": 2
+  },
+  "local_time": {
+    "time_t": 1792385366,
+    "asctime": "Mon Oct 19 12:49:26 2026 CST"
+  }
+}

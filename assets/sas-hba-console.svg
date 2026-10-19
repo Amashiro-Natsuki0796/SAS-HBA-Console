@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172433"/>
+      <stop offset="1" stop-color="#0b1118"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3d8bfd"/>
+      <stop offset="1" stop-color="#1f4f9c"/>
+    </linearGradient>
+    <linearGradient id="bay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef4fa"/>
+      <stop offset="1" stop-color="#9fb2c4"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="244" height="244" rx="54" fill="url(#bg)" stroke="#2b4560" stroke-width="3"/>
+  <rect x="70" y="40" width="116" height="58" rx="9" fill="url(#chip)" stroke="#6ea8ff" stroke-width="2"/>
+  <g stroke="#84b6ff" stroke-width="2" opacity="0.75">
+    <path d="M84 40 V28 M100 40 V28 M116 40 V28 M132 40 V28 M148 40 V28 M164 40 V28"/>
+    <path d="M70 54 H58 M70 68 H58 M70 82 H58 M186 54 H198 M186 68 H198 M186 82 H198"/>
+  </g>
+  <text x="128" y="78" text-anchor="middle" font-family="DejaVu Sans, Ubuntu, sans-serif" font-size="24" font-weight="bold" fill="#f2f8ff">SAS</text>
+  <g>
+    <rect x="50" y="126" width="156" height="32" rx="7" fill="url(#bay)" stroke="#72889c" stroke-width="1.5"/>
+    <rect x="50" y="166" width="156" height="32" rx="7" fill="url(#bay)" stroke="#72889c" stroke-width="1.5"/>
+    <rect x="50" y="206" width="156" height="30" rx="7" fill="#26384a" stroke="#3d556c" stroke-width="1.5"/>
+    <rect x="62" y="134" width="10" height="15" rx="2" fill="#0c1118"/>
+    <rect x="62" y="174" width="10" height="15" rx="2" fill="#0c1118"/>
+    <g fill="#2f9e44">
+      <circle cx="184" cy="142" r="4.5"/>
+      <circle cx="184" cy="182" r="4.5"/>
+    </g>
+    <g fill="#0f1a24">
+      <rect x="78" y="138" width="74" height="8" rx="3"/>
+      <rect x="78" y="178" width="74" height="8" rx="3"/>
+    </g>
+    <g fill="#3d556c">
+      <rect x="62" y="216" width="22" height="5" rx="2"/>
+      <rect x="92" y="216" width="22" height="5" rx="2"/>
+      <rect x="122" y="216" width="22" height="5" rx="2"/>
+      <rect x="152" y="216" width="22" height="5" rx="2"/>
+    </g>
+    <g fill="#8fb8e8" opacity="0.9">
+      <circle cx="70" cy="218" r="2"/>
+      <circle cx="100" cy="218" r="2"/>
+      <circle cx="130" cy="218" r="2"/>
+      <circle cx="160" cy="218" r="2"/>
+    </g>
+  </g>
+</svg>

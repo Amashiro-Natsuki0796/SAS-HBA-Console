@@ -1,0 +1,29 @@
+{
+  "json_format_version": [1, 0],
+  "smartctl": {
+    "version": [7, 4],
+    "pre_release": false,
+    "svn_revision": "5530",
+    "platform_info": "x86_64-linux-6.12.0-amd64",
+    "build_info": "(local build)",
+    "argv": ["smartctl", "-a", "-j", "-n", "standby", "/dev/sdd"],
+    "exit_status": 2,
+    "messages": [
+      {
+        "string": "Device is in STANDBY mode, exit(2)",
+        "severity": "information"
+      }
+    ]
+  },
+  "device": {
+    "name": "/dev/sdd",
+    "info_name": "/dev/sdd [SAT]",
+    "type": "sat",
+    "protocol": "ATA"
+  },
+  "model_name": "ST4000VN008-2DR166",
+  "serial_number": "ZDH0ABCD",
+  "firmware_version": "SC60",
+  "user_capacity": {"blocks": 7814037168, "bytes": 4000787030016},
+  "power_mode": "STANDBY"
+}

@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+"""源码运行时的特权助手包装器。
+
+pkexec 会清理 PYTHONPATH，因此这里显式把项目根目录加入 sys.path。
+安装后的版本由 /usr/libexec/sas-hba-helper 使用同样的逻辑。
+"""
+import os
+import sys
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, PROJECT_ROOT)
+from sas_hba_console.helper import main  # noqa: E402
+
+raise SystemExit(main())

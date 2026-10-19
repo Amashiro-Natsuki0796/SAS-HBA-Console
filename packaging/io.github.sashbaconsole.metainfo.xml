@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.sashbaconsole</id>
+  <name>SAS HBA Storage Console</name>
+  <name xml:lang="zh-CN">SAS HBA 存储控制台</name>
+  <summary>Inspect SAS, SCSI and RAID controllers and drive SMART data</summary>
+  <summary xml:lang="zh-CN">查看 SAS/SCSI/RAID 控制器与硬盘 SMART，控制单盘启停与安全热拔出</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <description>
+    <p>A graphical console for SAS, SCSI and RAID host bus adapters on Debian and Ubuntu based systems.</p>
+    <ul>
+      <li>Discovers every storage controller exposed through sysfs</li>
+      <li>Resolves the controller model from the board name and the system pci.ids database</li>
+      <li>Lists attached SAS/SATA drives and reads S.M.A.R.T. health, temperature and attributes</li>
+      <li>Spins a single idle drive down or up, or safely hot-removes it with a SCSI delete</li>
+      <li>Manual and automatic refresh, plus SCSI bus rescan for hot-plugged drives</li>
+      <li>Dark theme by default, requests root through polkit/pkexec on startup</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">sas-hba-console.desktop</launchable>
+  <url type="homepage">https://github.com/sas-hba-console/sas-hba-console</url>
+  <developer id="io.github.sashbaconsole">
+    <name>SAS HBA Storage Console contributors</name>
+  </developer>
+  <releases>
+    <release version="2.1.0" date="2026-10-19"/>
+  </releases>
+  <content_rating type="oars-1.1"/>
+</component>

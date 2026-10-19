@@ -1,0 +1,31 @@
+Source: sas-hba-console
+Section: utils
+Priority: optional
+Maintainer: SAS HBA Storage Console contributors <sas-hba@example.invalid>
+Build-Depends: debhelper-compat (= 13), python3:any
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+Homepage: https://github.com/sas-hba-console/sas-hba-console
+
+Package: sas-hba-console
+Architecture: all
+Depends: ${misc:Depends}, python3:any, python3-gi, gir1.2-gtk-3.0,
+ smartmontools, sdparm, sg3-utils, pkexec, pciutils,
+ dbus | default-dbus-session-bus
+Recommends: polkitd | policykit-1,
+ lxpolkit | polkit-1-auth-agent | xfce-polkit | mate-polkit
+Suggests: nvme-cli, sas3flash
+Provides: lsi9207-console
+Conflicts: lsi9207-console
+Replaces: lsi9207-console (<< 2.0.0)
+Description: graphical console for SAS/SCSI/RAID HBAs and drive SMART
+ A GTK3 graphical console for SAS, SCSI and RAID host bus adapters on
+ Debian and Ubuntu based systems. It discovers every storage controller
+ exposed through sysfs, resolves the controller model from the board name
+ and the system pci.ids database (so Broadcom/LSI, Adaptec/Microchip,
+ HPE, Intel, Marvell and others are shown correctly), lists the attached
+ SAS/SATA drives, reads S.M.A.R.T. health data with smartctl, and can spin
+ a single idle drive down or up or safely hot-remove it from the kernel.
+ .
+ The GUI itself runs unprivileged; privileged hardware access is provided by
+ a minimal helper started on demand through pkexec and polkit.

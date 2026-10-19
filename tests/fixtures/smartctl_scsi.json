@@ -1,0 +1,65 @@
+{
+  "json_format_version": [1, 0],
+  "smartctl": {
+    "version": [7, 4],
+    "pre_release": false,
+    "svn_revision": "5530",
+    "platform_info": "x86_64-linux-6.12.0-amd64",
+    "build_info": "(local build)",
+    "argv": ["smartctl", "-a", "-j", "-n", "standby", "/dev/sdc"],
+    "exit_status": 0,
+    "messages": []
+  },
+  "device": {
+    "name": "/dev/sdc",
+    "info_name": "/dev/sdc",
+    "type": "scsi",
+    "protocol": "SCSI"
+  },
+  "scsi_vendor": "SEAGATE",
+  "scsi_product": "ST8000NM0075",
+  "scsi_model_name": "ST8000NM0075",
+  "serial_number": "ZA1A1A1A",
+  "firmware_version": "0004",
+  "user_capacity": {"blocks": 15628053168, "bytes": 8001563222016},
+  "rotation_rate": 7200,
+  "smart_status": {"passed": true},
+  "temperature": {"current": 36},
+  "power_on_time": {"hours": 24310},
+  "power_cycle_count": 78,
+  "scsi_grown_defect_list": 0,
+  "scsi_error_counter_log": {
+    "read": {
+      "errors_corrected_by_eccfast": 0,
+      "errors_corrected_by_eccdelayed": 0,
+      "errors_corrected_by_rereads_rewrites": 0,
+      "total_errors_corrected": 0,
+      "total_uncorrected_errors": 0,
+      "gigabytes_processed": "412356.782"
+    },
+    "write": {
+      "errors_corrected_by_eccfast": 0,
+      "errors_corrected_by_eccdelayed": 0,
+      "errors_corrected_by_rereads_rewrites": 0,
+      "total_errors_corrected": 0,
+      "total_uncorrected_errors": 0,
+      "gigabytes_processed": "338112.104"
+    },
+    "verify": {
+      "errors_corrected_by_eccfast": 0,
+      "errors_corrected_by_eccdelayed": 0,
+      "errors_corrected_by_rereads_rewrites": 0,
+      "total_errors_corrected": 0,
+      "total_uncorrected_errors": 0,
+      "gigabytes_processed": "0.000"
+    }
+  },
+  "scsi_start_stop_cycle_counter": {
+    "year_of_manufacture": 2018,
+    "week_of_manufacture": 12,
+    "specified_cycle_count_over_device_lifetime": 10000,
+    "accumulated_start_stop_cycles": 78,
+    "specified_load_unload_count_over_device_lifetime": 300000,
+    "accumulated_load_unload_cycles": 80
+  }
+}
